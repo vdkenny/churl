@@ -1,7 +1,7 @@
 {
-  "name": "churl",
-  "private": true,
-  "workspaces": [
-    "apps/*"
-  ]
+    "name": "churl",
+    "private": true,
+    "workspaces": [
+        "apps/*"
+    ]
 }
