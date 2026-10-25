@@ -1,8 +1,8 @@
 import { Hono } from "hono";
-import auth from "./auth";
+import authorization from "./authorization";
 
 const app = new Hono();
 
-app.route("/auth", auth);
+app.route("/authorization", authorization);
 
 export default app;

@@ -8,9 +8,7 @@ const handleParaglide: Handle = ({ event, resolve }) =>
             { ...event, request },
             {
                 transformPageChunk: ({ html }) =>
-                    html
-                        .replace("%paraglide.lang%", locale)
-                        .replace("%paraglide.dir%", getTextDirection(locale)),
+                    html.replace("%paraglide.lang%", locale).replace("%paraglide.dir%", getTextDirection(locale)),
             },
         );
     });

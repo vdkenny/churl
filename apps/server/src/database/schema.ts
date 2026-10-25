@@ -7,6 +7,7 @@ export const users = pgTable("users", {
     email: varchar().notNull(),
 
     github_id: integer(),
+    created_at: timestamp().defaultNow(),
 });
 
 export const urls = pgTable("urls", {
@@ -16,7 +17,7 @@ export const urls = pgTable("urls", {
     creator_id: integer(),
 });
 
-const relations = defineRelations({ users, urls }, ({ one, users, urls }) => ({
+export const relations = defineRelations({ users, urls }, ({ one, users, urls }) => ({
     urls: {
         creator: one.users({
             from: urls.creator_id,
