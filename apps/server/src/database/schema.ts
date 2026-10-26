@@ -12,9 +12,10 @@ export const users = pgTable("users", {
 
 export const urls = pgTable("urls", {
     id: varchar().primaryKey(),
-    expires_at: timestamp({ mode: "date", withTimezone: true }),
+    destination: varchar().notNull(),
 
-    creator_id: integer(),
+    creator_id: integer().notNull(),
+    expires_at: timestamp({ mode: "date", withTimezone: true }),
 });
 
 export const relations = defineRelations({ users, urls }, ({ one, users, urls }) => ({

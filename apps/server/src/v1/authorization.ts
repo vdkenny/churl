@@ -26,21 +26,20 @@ app.get("/init", async (c) => {
         sameSite: "strict",
     });
 
+    await Bun.sleep(1000);
+
     return c.redirect(url, 302);
 });
 
 app.get("/complete", async (c) => {
     const state = c.req.query("state");
 
-    console.log(state, getCookie(c, "state"));
     if (state !== getCookie(c, "state")) {
         return c.json({ message: "invalid state" }, 400);
     }
 
     const url = new URL(GITHUB_TOKEN_URL);
     const code = c.req.query("code");
-
-    console.log(code);
 
     if (!code) {
         return c.json({ message: "invalid code" }, 400);
@@ -78,15 +77,16 @@ app.get("/complete", async (c) => {
     }
 
     const jwtToken = await sign({ id: user[0].id }, Bun.env.JWT_SECRET);
+    console.log("jwt:", jwtToken);
     setCookie(c, "sid", jwtToken, {
         secure: Bun.env.NODE_ENV === "production",
-        domain: "locahost",
+        domain: "localhost",
         httpOnly: true,
         maxAge: 60 * 60 * 24 * 31,
         sameSite: "strict",
     });
 
-    return c.redirect(Bun.env.HOME_RL, 302);
+    return c.redirect(Bun.env.HOME_URL, 302);
 });
 
 export default app;

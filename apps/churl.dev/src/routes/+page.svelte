@@ -1,4 +1,13 @@
-<h1>Welcome to SvelteKit</h1>
-<p>
-    Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation
-</p>
+<script lang="ts">
+    let destination = $state("");
+
+    $effect(() => {
+        console.log(destination)
+    })
+</script>
+
+<main class="h-screen flex items-center justify-center">
+    <div class="border border-border px-24">
+        <input bind:value={destination} type="text" />
+    </div>
+</main>

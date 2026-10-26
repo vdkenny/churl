@@ -7,6 +7,6 @@ declare module "bun" {
         GITHUB_CLIENT_SECRET: string;
         GITHUB_REDIRECT_URI: string;
 
-        HOME_RL: string;
+        HOME_URL: string;
     }
 }
