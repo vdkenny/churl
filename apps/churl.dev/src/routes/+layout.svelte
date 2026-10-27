@@ -1,8 +1,8 @@
 <script lang="ts">
+    import "@fontsource-variable/geist-pixel";
     import "./layout.css";
     import favicon from "#lib/assets/favicon.svg";
     import type { LayoutProps } from "./$types";
-    import ThemeToggle from "#lib/components/ThemeToggle.svelte";
 
     let { children }: LayoutProps = $props();
 </script>
@@ -12,5 +12,3 @@
 </svelte:head>
 
 {@render children()}
-
-<ThemeToggle />
