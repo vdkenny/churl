@@ -52,7 +52,7 @@ app.post("/", middleware, async (c) => {
         return c.json({ message: "my bad" }, 500);
     }
 
-    return c.json(url);
+    return c.json(url[0]);
 });
 
 app.delete("/:id", middleware, async (c) => {

@@ -1,4 +1,9 @@
 {
     "$schema": "https://inlang.com/schema/inlang-message-format",
-    "hello_world": "Hello, {name} from de!"
+    "enter_url": "gib deine süße lange url ein",
+    "create": "erstellen",
+    "made_in": "hergestellt in der eu",
+    "privacy": "datenschutz",
+    "source_code": "quellcode",
+    "creation_success": "der Link wurde erfolgreich erstellt."
 }

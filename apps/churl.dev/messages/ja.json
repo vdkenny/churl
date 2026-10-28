@@ -1,4 +1,9 @@
 {
     "$schema": "https://inlang.com/schema/inlang-message-format",
-    "hello_world": "Hello, {name} from ja!"
+    "enter_url": "ながーいurlをいれてね",
+    "create": "つくる",
+    "made_in": "欧州製",
+    "privacy": "プライバシー",
+    "source_code": "ソースコード",
+    "creation_success": "リンクが正常に作成されました。"
 }
