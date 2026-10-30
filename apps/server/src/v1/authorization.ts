@@ -20,7 +20,7 @@ app.get("/init", async (c) => {
 
     setCookie(c, "state", state, {
         secure: Bun.env.NODE_ENV === "production",
-        domain: "localhost",
+        domain: Bun.env.SID_DOMAIN,
         httpOnly: true,
         maxAge: 3600,
         sameSite: "strict",
@@ -77,10 +77,10 @@ app.get("/complete", async (c) => {
     }
 
     const jwtToken = await sign({ id: user[0].id }, Bun.env.JWT_SECRET);
-    console.log("jwt:", jwtToken);
+
     setCookie(c, "sid", jwtToken, {
         secure: Bun.env.NODE_ENV === "production",
-        domain: "localhost",
+        domain: Bun.env.SID_DOMAIN,
         httpOnly: true,
         maxAge: 60 * 60 * 24 * 31,
         sameSite: "strict",
