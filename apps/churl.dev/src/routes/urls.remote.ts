@@ -1,16 +1,13 @@
-import { command, getRequestEvent } from "$app/server";
-import { API_URL } from "$app/env/private";
+import { command } from "$app/server";
+import { API_URL, VERCEL_SERVER_URL } from "$app/env/private";
 import * as v from "valibot";
 import { error } from "@sveltejs/kit";
 
 export const create = command(v.pipe(v.string(), v.nonEmpty(), v.url()), async (destination) => {
-    const { request } = getRequestEvent();
-
-    const response = await fetch(`${API_URL}/v1/urls`, {
+    const response = await fetch(`${VERCEL_SERVER_URL}/v1/urls`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            Cookie: request.headers.get("Cookie") ?? "",
         },
         body: JSON.stringify({ destination }),
     });

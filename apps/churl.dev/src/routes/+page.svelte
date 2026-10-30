@@ -36,13 +36,6 @@
 <div class="flex w-96 h-10 space-x-2 items-center">
     <ThemeToggle />
     <LanguageSwitch />
-    <Button.Root
-        href="/account"
-        class="rounded-md bg-muted/35 border border-border shadow-mini hover:bg-dark/95 inline-flex
-	h-10 w-20 items-center justify-center text-foreground px-2 text-base
-	active:scale-[0.98] active:transition-all"
-        >Sign in
-    </Button.Root>
     <span class="ml-2">{m.made_in()}</span>
     <img class="size-4 mt-0.75" src="/flags/eu.avif" alt="eu flag" />
 </div>

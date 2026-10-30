@@ -1,10 +1,9 @@
 import { Hono } from "hono";
 import { database, urls } from "../database";
-import { and, eq } from "drizzle-orm";
-import { middleware, Variables } from "./middleware";
+import { eq } from "drizzle-orm";
 import { nanoid } from "nanoid";
 
-const app = new Hono<{ Variables: Variables }>();
+const app = new Hono();
 
 app.get("/:id", async (c) => {
     const id = c.req.param("id");
@@ -28,8 +27,7 @@ app.get("/d/:id", async (c) => {
     return c.json(url[0], 200);
 });
 
-app.post("/", middleware, async (c) => {
-    const user = c.get("jwtPayload");
+app.post("/", async (c) => {
     const body = await c.req.json(); // todo: use zod [?]
 
     if (body.destination === undefined) {
@@ -46,28 +44,13 @@ app.post("/", middleware, async (c) => {
 
     const url = await database
         .insert(urls)
-        .values({ id: nanoid(len), destination: body.destination, creator_id: user.id })
+        .values({ id: nanoid(len), destination: body.destination })
         .returning();
     if (url.length === 0) {
         return c.json({ message: "my bad" }, 500);
     }
 
     return c.json(url[0]);
-});
-
-app.delete("/:id", middleware, async (c) => {
-    const user = c.get("jwtPayload");
-    const id = c.req.param("id");
-
-    const url = await database
-        .delete(urls)
-        .where(and(eq(urls.creator_id, user.id), eq(urls.id, id)))
-        .returning();
-    if (url.length === 0) {
-        return c.json({ message: "no such url" }, 400);
-    }
-
-    return c.status(200);
 });
 
 export default app;
