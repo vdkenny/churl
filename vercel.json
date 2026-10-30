@@ -1,0 +1,20 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "web": {
+      "root": "apps/churl.dev",
+      "framework": "sveltekit-1",
+      "bindings": [
+        { "type": "service", "service": "server", "format": "url", "env": "API_URL" }
+      ]
+    },
+    "server": {
+      "root": "apps/server",
+      "framework": "hono"
+    }
+  },
+  "rewrites": [
+    { "source": "/v1/(.*)", "destination": { "service": "server" } },
+    { "source": "/(.*)", "destination": { "service": "web" } }
+  ]
+}
