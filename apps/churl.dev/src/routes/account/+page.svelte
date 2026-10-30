@@ -1,6 +1,6 @@
 <script lang="ts">
     import { Button } from "bits-ui";
-    import { API_URL } from "$app/env/public";
+    import { API_URL } from "$app/env/private";
     import type { PageProps } from "./$types";
 
     let { data }: PageProps = $props();

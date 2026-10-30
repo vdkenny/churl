@@ -1,5 +1,5 @@
 import { command, getRequestEvent } from "$app/server";
-import { API_URL } from "$app/env/public";
+import { API_URL } from "$app/env/private";
 import * as v from "valibot";
 import { error } from "@sveltejs/kit";
 
