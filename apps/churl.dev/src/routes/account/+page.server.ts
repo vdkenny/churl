@@ -1,7 +1,8 @@
-import type { LayoutServerLoad } from "./$types";
+import type { PageServerLoad } from "./$types";
+import { API_URL } from "$app/env/public";
 
-export const load: LayoutServerLoad = async ({ request }) => {
-    const response = await fetch("http://localhost:3000/v1/users/@me", {
+export const load: PageServerLoad = async ({ request }) => {
+    const response = await fetch(`${API_URL}/v1/users/@me`, {
         headers: {
             Cookie: request.headers.get("Cookie") ?? "",
         },

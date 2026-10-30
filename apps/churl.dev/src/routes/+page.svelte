@@ -1,42 +1,16 @@
 <script lang="ts">
     import LanguageSwitch from "#lib/components/LanguageSwitch.svelte";
     import ThemeToggle from "#lib/components/ThemeToggle.svelte";
-    import { Button, Label, Separator } from "bits-ui";
+    import { Button, Label } from "bits-ui";
     import { m } from "#lib/paraglide/messages.js";
+    import { create } from "./urls.remote";
 
     let url = $state("");
-    let response = $state({
-        ok: true,
-        message: "",
-    });
-    let timer: NodeJS.Timeout;
 
-    async function create() {
-        const res = await fetch("http://localhost:3000/v1/urls", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            credentials: "include",
-            body: JSON.stringify({ destination: url }),
-        });
-
-        const json = await res.json();
-        response = {
-            ok: res.ok,
-            message: res.ok ? m.creation_success() : json.message,
-        };
-
-        if (res.ok) {
-            url = "http://localhost:3000/v1/urls/" + json.id;
-        }
-
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-            response = { ok: true, message: "" };
-        }, 5_000);
+    async function oncreate() {
+        url = await create(url);
     }
 </script>
-
-<span class="absolute top-32 {response.ok ? 'text-green-500' : 'text-destructive'}">{response.message}</span>
 
 <div class="flex space-x-2 w-96 items-end">
     <div class="flex flex-col space-y-1.25 w-full">
@@ -50,7 +24,7 @@
     </div>
 
     <Button.Root
-        onclick={create}
+        onclick={async () => await oncreate()}
         class="rounded-lg bg-muted text-foreground shadow-mini hover:bg-dark/95 inline-flex
 	h-12 items-center justify-end px-4 text-lg
 	font-semibold active:scale-[0.98] active:transition-all cursor-pointer text-nowrap"
