@@ -1,14 +1,13 @@
 {
     "$schema": "https://openapi.vercel.sh/vercel.json",
+    "bunVersion": "1.4.x",
     "services": {
         "web": {
-            "runtime": "bun",
             "root": "apps/churl.dev",
             "framework": "sveltekit-1",
             "bindings": [{ "type": "service", "service": "server", "format": "url", "env": "API_URL" }]
         },
         "server": {
-            "runtime": "bun",
             "root": "apps/server",
             "framework": "hono"
         }
