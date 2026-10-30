@@ -1,6 +1,5 @@
 <script lang="ts">
     import { Button } from "bits-ui";
-    import { API_URL } from "$app/env/private";
     import type { PageProps } from "./$types";
 
     let { data }: PageProps = $props();
@@ -12,7 +11,7 @@
     </span>
 {:else}
     <Button.Root
-        href={`${API_URL}/v1/authorization/init`}
+        href={`/v1/authorization/init`}
         class="rounded-lg bg-muted text-foreground shadow-mini hover:bg-dark/95 inline-flex
 	h-12 items-center justify-end px-4 text-lg
 	font-medium active:scale-[0.98] active:transition-all cursor-pointer text-nowrap"
