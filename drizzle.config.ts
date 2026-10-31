@@ -5,6 +5,6 @@ export default defineConfig({
     schema: "./src/database/schema.ts",
 
     dbCredentials: {
-        url: Bun.env.DATABASE_URL,
+        url: Bun.env.DATABASE_URL!,
     },
 });

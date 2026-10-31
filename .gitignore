@@ -1,3 +1,24 @@
 node_modules
+
+# build
+.output
+.vercel
+/.svelte-kit
+/build
+
+# os
+.DS_Store
+Thumbs.db
+
+# vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# paraglide
+src/lib/paraglide
+project.inlang/cache/
+
 .vercel
 .env*
+
+!.env.example

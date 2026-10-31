@@ -13,10 +13,9 @@ The fastest way to get started locally:
 docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
 
 # 2. Set env variables
-cp apps/server/.env.example apps/server/.env
-cp apps/churl.dev/.env.example apps/churl.dev/.env
+cp .env.example .env
 
-bun run --filter "*" dev
+bun run dev
 ```
 
 ## License
