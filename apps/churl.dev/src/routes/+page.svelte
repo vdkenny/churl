@@ -3,12 +3,24 @@
     import ThemeToggle from "#lib/components/ThemeToggle.svelte";
     import { Button, Label } from "bits-ui";
     import { m } from "#lib/paraglide/messages.js";
-    import { create } from "./urls.remote";
+    import { VERCEL_URL } from "$app/env/public";
 
     let url = $state("");
 
     async function oncreate() {
-        url = await create(url);
+        const response = await fetch("/urls", {
+            method: "POST",
+            body: JSON.stringify({ destination: url }),
+            headers: { "content-type": "application/json" },
+        });
+
+        if (!response.ok) {
+            url = response.statusText;
+            return;
+        }
+
+        const json = await response.json();
+        url = "https://" + VERCEL_URL + "/" + json.id;
     }
 </script>
 
