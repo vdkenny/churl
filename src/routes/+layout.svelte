@@ -6,6 +6,7 @@
     import { m } from "#lib/paraglide/messages.js";
     import { Separator } from "bits-ui";
     import { theme } from "#lib/state/theme.svelte.ts";
+    import { localizeHref } from "#lib/paraglide/runtime.js";
 
     let { children }: LayoutProps = $props();
 
@@ -38,8 +39,8 @@
     <Separator.Root class="bg-border my-1 shrink-0 h-px w-104" />
 
     <div class="flex space-x-5 mt-3 text-muted-foreground">
-        <a href="/">[{m.home()}]</a>
-        <a href="/privacy">[{m.privacy()}]</a>
+        <a href={localizeHref("/")}>[{m.home()}]</a>
+        <a href={localizeHref("/privacy")}>[{m.privacy()}]</a>
         <a href="https://github.com/vdkenny/churl" target="_blank">[{m.source_code()}]</a>
     </div>
 
