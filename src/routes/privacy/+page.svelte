@@ -1,6 +1,19 @@
 <script lang="ts">
     import { m } from "#lib/paraglide/messages.js";
     import { Button } from "bits-ui";
+    import { browser } from "$app/env";
+
+    let analytics = $state(browser && localStorage.getItem("va") === "1");
+
+    $effect(() => {
+        try {
+            localStorage.setItem("va", analytics ? "1" : "0");
+        } catch {}
+    });
+
+    function toggleAnalytics() {
+        analytics = !analytics;
+    }
 </script>
 
 <section class="max-w-104 w-full px-4 flex flex-col space-y-2">
@@ -46,5 +59,7 @@
         </div>
     </div>
 
-    <Button.Root class="cursor-pointer">{m["privacy.opt_out"]()}</Button.Root>
+    <Button.Root onclick={toggleAnalytics} class="cursor-pointer"
+        >{m["privacy.opt_out"]()} {analytics ? "" : ": x"}</Button.Root
+    >
 </section>

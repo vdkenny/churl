@@ -7,12 +7,25 @@
     import { Separator } from "bits-ui";
     import { theme } from "#lib/state/theme.svelte.ts";
     import { localizeHref } from "#lib/paraglide/runtime.js";
+    import { dev } from "$app/env";
+    import { injectAnalytics } from "#lib/analytics/index.svelte.ts";
 
     let { children }: LayoutProps = $props();
 
     $effect(() => {
         document.documentElement.classList.remove("light", "dark");
         document.documentElement.classList.add(theme.current);
+    });
+
+    injectAnalytics({
+        mode: dev ? "development" : "production",
+        beforeSend: (event) => {
+            if (localStorage.getItem("va") === "0") {
+                return null;
+            }
+
+            return event;
+        },
     });
 </script>
 
