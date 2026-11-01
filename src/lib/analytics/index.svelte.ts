@@ -1,12 +1,11 @@
 // @vercel/analytics upstream does not support SvelteKit 3; see https://github.com/vercel/analytics/pull/204
-import type {} from "@sveltejs/kit";
 import { page } from "$app/state";
 import { inject, pageview } from "@vercel/analytics";
-import type { AnalyticsProps, BeforeSend, BeforeSendEvent } from "@vercel/analytics";
+import type { AnalyticsProps } from "@vercel/analytics";
 
 function getBasePath(): string | undefined {
     try {
-        return import.meta.env.VITE_VERCEL_OBSERVABILITY_BASEPATH as string | undefined;
+        return import.meta.env.VITE_VERCEL_OBSERVABILITY_BASEPATH;
     } catch {
         // do nothing
     }
@@ -14,7 +13,7 @@ function getBasePath(): string | undefined {
 
 function getConfigString(): string | undefined {
     try {
-        return import.meta.env.VITE_VERCEL_OBSERVABILITY_CLIENT_CONFIG as string | undefined;
+        return import.meta.env.VITE_VERCEL_OBSERVABILITY_CLIENT_CONFIG;
     } catch {
         // do nothing
     }

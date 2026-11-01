@@ -1,7 +1,7 @@
 import { error, redirect } from "@sveltejs/kit";
-import type { RequestHandler } from "./$types";
-import { database, urls } from "#lib/server/database/index.ts";
 import { eq } from "drizzle-orm";
+import { database, urls } from "#lib/server/database/index.ts";
+import type { RequestHandler } from "./$types";
 
 export const GET: RequestHandler = async ({ params }) => {
     const url = await database.select().from(urls).where(eq(urls.id, params.id));

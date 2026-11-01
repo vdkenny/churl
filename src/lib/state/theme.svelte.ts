@@ -1,7 +1,6 @@
 // og implementation: https://github.com/sveltejs/svelte.dev/tree/main/packages/site-kit/src/lib/state
-import { MediaQuery } from "svelte/reactivity";
 import { on } from "svelte/events";
-import { createSubscriber } from "svelte/reactivity";
+import { createSubscriber, MediaQuery } from "svelte/reactivity";
 
 function get_default_storage() {
     try {

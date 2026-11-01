@@ -1,8 +1,12 @@
 {
-    "name": "churl.dev",
-    "private": true,
+    "name": "churl",
     "version": "0.0.0",
+    "private": true,
     "type": "module",
+    "imports": {
+        "#lib": "./src/lib/index.js",
+        "#lib/*": "./src/lib/*"
+    },
     "scripts": {
         "dev": "bunx --bun vite dev",
         "build": "bunx --bun vite build",
@@ -10,6 +14,14 @@
         "prepare": "svelte-kit sync || echo ''",
         "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
         "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+    },
+    "dependencies": {
+        "@fontsource-variable/geist-pixel": "^5.3.1",
+        "@lucide/svelte": "^1.63.0",
+        "@vercel/analytics": "^2.0.1",
+        "bits-ui": "^2.20.2",
+        "drizzle-orm": "^0.45.4",
+        "nanoid": "^6.0.2"
     },
     "devDependencies": {
         "@inlang/paraglide-js": "^2.29.3",
@@ -25,17 +37,5 @@
         "tailwindcss": "^4.3.3",
         "typescript": "^6.0.3",
         "vite": "^8.3.5"
-    },
-    "imports": {
-        "#lib": "./src/lib/index.js",
-        "#lib/*": "./src/lib/*"
-    },
-    "dependencies": {
-        "@fontsource-variable/geist-pixel": "^5.3.1",
-        "@lucide/svelte": "^1.63.0",
-        "@vercel/analytics": "^2.0.1",
-        "bits-ui": "^2.20.2",
-        "drizzle-orm": "^0.45.4",
-        "nanoid": "^6.0.2"
     }
 }

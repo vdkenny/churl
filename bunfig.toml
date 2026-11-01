@@ -1,3 +1,13 @@
 [fmt]
 printWidth = 120
 tabWidth = 4
+sortPackageJson = true
+
+[fmt.sortImports]
+newlinesBetween = false
+
+[fmt.sortTailwindcss]
+stylesheet = "src/routes/layout.css"
+
+[lint]
+typeAware = true

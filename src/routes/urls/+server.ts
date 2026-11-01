@@ -1,7 +1,7 @@
 import { error } from "@sveltejs/kit";
-import type { RequestHandler } from "./$types";
-import { database, urls } from "#lib/server/database/index.ts";
 import { nanoid } from "nanoid";
+import { database, urls } from "#lib/server/database/index.ts";
+import type { RequestHandler } from "./$types";
 
 export const POST: RequestHandler = async ({ request }) => {
     const { destination } = await request.json();
