@@ -24,7 +24,7 @@
     }
 </script>
 
-<div class="flex space-x-2 w-96 items-end">
+<div class="flex space-x-2 w-104 items-end">
     <div class="flex flex-col space-y-1.25 w-full">
         <Label.Root class="text-base text-foreground/80 ml-0.75">{m.enter_url()}</Label.Root>
         <input
@@ -45,7 +45,7 @@
     </Button.Root>
 </div>
 
-<div class="flex w-96 h-10 space-x-2 items-center">
+<div class="flex w-104 h-10 space-x-2 items-center">
     <ThemeToggle />
     <LanguageSwitch />
     <span class="ml-2">{m.made_in()}</span>

@@ -35,13 +35,13 @@
 <main class="h-screen flex flex-col space-y-3 items-center justify-center">
     {@render children()}
 
-    <Separator.Root class="bg-border my-1 shrink-0 h-px w-96" />
+    <Separator.Root class="bg-border my-1 shrink-0 h-px w-104" />
 
     <div class="flex space-x-5 mt-3 text-muted-foreground">
-        <a href="/">[home]</a>
+        <a href="/">[{m.home()}]</a>
         <a href="/privacy">[{m.privacy()}]</a>
         <a href="https://github.com/vdkenny/churl" target="_blank">[{m.source_code()}]</a>
     </div>
 
-    <a href="https://github.com/vdkenny" target="_blank" class="text-muted-foreground">by @vdkenny</a>
+    <a href="https://github.com/vdkenny" target="_blank" class="text-muted-foreground">{m.by()} @vdkenny</a>
 </main>

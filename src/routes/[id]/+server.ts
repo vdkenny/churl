@@ -9,5 +9,5 @@ export const GET: RequestHandler = async ({ params }) => {
         return error(404);
     }
 
-    return redirect(302, url[0].destination, {external: true});
+    return redirect(302, url[0].destination, { external: true });
 };
