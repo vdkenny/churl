@@ -3,8 +3,40 @@
     "enter_url": "gib deine süße lange url ein",
     "create": "erstellen",
     "made_in": "hergestellt in der eu",
-    "home": "startseite",
-    "privacy": "datenschutz",
-    "source_code": "quellcode",
-    "by": "von"
+
+    "footer": {
+        "home": "startseite",
+        "privacy": "datenschutz",
+        "source_code": "quellcode",
+        "by": "von"
+    },
+
+    "privacy": {
+        "disclaimer": "denk dran: das hier ist nur ein beispiel ohne rechtliche wirkung.",
+        "title": "datenschutzerklärung",
+        "last_update": "letzte aktualisierung: 1. november 2026",
+        "who": {
+            "title": "wer wir sind:",
+            "text": "churl ist eine simple demo eines url-shorteners. der service wird bereitgestellt, wie er ist"
+        },
+        "contacts": "kontakt:",
+        "processed": {
+            "title": "was verarbeitet wird, warum und wo:",
+            "data": "daten: die url, die du abschickst, technische daten (ip, user-agent) durch vercel inc.",
+            "purpose": "zweck: den service bereitstellen, die seite absichern",
+            "legal_basis": "rechtsgrundlage: berechtigte interessen wie sicherheit, verbesserung und betrieb des services",
+            "storage": "wo gespeichert: frankfurt, deutschland, bei neon.tech"
+        },
+        "retention": {
+            "title": "wie lange daten gespeichert werden",
+            "before": "die urls werden gespeichert, bis sie gelöscht werden oder ablaufen. lies ",
+            "link": "die datenschutzerklärung von vercel",
+            "after": " zur speicherdauer der daten, die vercel inc. erhebt."
+        },
+        "rights": {
+            "title": "deine datenschutzrechte",
+            "text": "nach der dsgvo kannst du der verarbeitung der von vercel web analytics erhobenen daten widersprechen."
+        },
+        "opt_out": "analytics deaktivieren"
+    }
 }

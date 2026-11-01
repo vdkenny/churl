@@ -3,8 +3,40 @@
     "enter_url": "mets ta url toute mignonne et longue",
     "create": "créer",
     "made_in": "fabriqué dans l’ue",
-    "home": "accueil",
-    "privacy": "confidentialité",
-    "source_code": "code source",
-    "by": "par"
+
+    "footer": {
+        "home": "accueil",
+        "privacy": "confidentialité",
+        "source_code": "code source",
+        "by": "par"
+    },
+
+    "privacy": {
+        "disclaimer": "garde en tête que ceci est un exemple sans valeur juridique.",
+        "title": "politique de confidentialité",
+        "last_update": "dernière mise à jour : 1er novembre 2026",
+        "who": {
+            "title": "qui on est :",
+            "text": "churl est une simple démo de raccourcisseur d'url. le service est fourni tel quel"
+        },
+        "contacts": "contact :",
+        "processed": {
+            "title": "ce qui est traité, pourquoi et où :",
+            "data": "données : l'url que tu envoies, données techniques (ip, user-agent) par vercel inc.",
+            "purpose": "finalité : fournir le service, sécuriser le site",
+            "legal_basis": "base légale : intérêts légitimes comme la sécurité, l'amélioration et le fonctionnement du service",
+            "storage": "où c'est stocké : francfort, allemagne, par neon.tech"
+        },
+        "retention": {
+            "title": "combien de temps les données sont gardées",
+            "before": "les urls sont conservées jusqu'à leur suppression ou expiration. lis ",
+            "link": "la politique de confidentialité de vercel",
+            "after": " pour la conservation des données collectées par vercel inc."
+        },
+        "rights": {
+            "title": "tes droits sur tes données",
+            "text": "selon le rgpd, tu peux t'opposer au traitement des données collectées par vercel web analytics."
+        },
+        "opt_out": "désactiver les analytics"
+    }
 }

@@ -39,10 +39,10 @@
     <Separator.Root class="bg-border my-1 shrink-0 h-px w-104" />
 
     <div class="flex space-x-5 mt-3 text-muted-foreground">
-        <a href={localizeHref("/")}>[{m.home()}]</a>
-        <a href={localizeHref("/privacy")}>[{m.privacy()}]</a>
-        <a href="https://github.com/vdkenny/churl" target="_blank">[{m.source_code()}]</a>
+        <a href={localizeHref("/")}>[{m["footer.home"]()}]</a>
+        <a href={localizeHref("/privacy")}>[{m["footer.privacy"]()}]</a>
+        <a href="https://github.com/vdkenny/churl" target="_blank">[{m["footer.source_code"]()}]</a>
     </div>
 
-    <a href="https://github.com/vdkenny" target="_blank" class="text-muted-foreground">{m.by()} @vdkenny</a>
+    <a href="https://github.com/vdkenny" target="_blank" class="text-muted-foreground">{m["footer.by"]()} @vdkenny</a>
 </main>

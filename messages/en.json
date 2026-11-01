@@ -3,8 +3,40 @@
     "enter_url": "enter ur cutie-long url",
     "create": "create",
     "made_in": "made in eu",
-    "home": "home",
-    "privacy": "privacy policy",
-    "source_code": "source code",
-    "by": "by"
+
+    "footer": {
+        "home": "home",
+        "privacy": "privacy policy",
+        "source_code": "source code",
+        "by": "by"
+    },
+
+    "privacy": {
+        "disclaimer": "keep in mind that this is an example without a legal power.",
+        "title": "privacy policy",
+        "last_update": "last update: 1 november 2026",
+        "who": {
+            "title": "who we are:",
+            "text": "churl is a simple demonstration of url-shortener. the service is provided as-is"
+        },
+        "contacts": "contacts:",
+        "processed": {
+            "title": "what is processed, why and where:",
+            "data": "data: the url you submit, technical data (ip, user-agent) by vercel inc.",
+            "purpose": "purpose: to provide service, secure site",
+            "legal_basis": "legal basis: legitimate interests such as security, improving service and operating",
+            "storage": "where stored: frankfurt, germany by neon.tech"
+        },
+        "retention": {
+            "title": "how long data is kept",
+            "before": "the urls are kept until deletion or expiring. read ",
+            "link": "vercel's privacy policy",
+            "after": " for data retention collected by vercel inc."
+        },
+        "rights": {
+            "title": "your privacy rights",
+            "text": "under the gdpr you can object to processing data collected by vercel web analytics."
+        },
+        "opt_out": "opt-out of analytics"
+    }
 }
