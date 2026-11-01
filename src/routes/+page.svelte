@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { VERCEL_URL } from "$app/env/public";
+    import { VERCEL_PROJECT_PRODUCTION_URL } from "$app/env/public";
     import { Button, Label } from "bits-ui";
     import LanguageSwitch from "#lib/components/LanguageSwitch.svelte";
     import ThemeToggle from "#lib/components/ThemeToggle.svelte";
@@ -20,7 +20,7 @@
         }
 
         const json = await response.json();
-        url = "https://" + VERCEL_URL + "/" + json.id;
+        url = "https://" + VERCEL_PROJECT_PRODUCTION_URL + "/" + json.id;
     }
 </script>
 
