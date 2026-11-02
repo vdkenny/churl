@@ -1,0 +1,47 @@
+{
+  "type": "diff",
+  "version": "9",
+  "dialect": "postgres",
+  "id": "18b10540-a3a4-4661-9b49-edfa30b442df",
+  "prevIds": [
+    "70b2a0fa-1739-444f-a872-030db764881d"
+  ],
+  "footprints": [
+    {
+      "statementType": "add_column",
+      "statementTarget": [
+        "column",
+        "public",
+        "urls",
+        "created_at"
+      ],
+      "writes": [
+        "s|col|public.urls.created_at",
+        "n|col|public.urls.created_at",
+        "e|col|public.urls.created_at"
+      ],
+      "reads": [
+        "n|tbl|public.urls",
+        "n|sch|public"
+      ]
+    }
+  ],
+  "deltas": [
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "urls",
+        "name": "created_at",
+        "type": "timestamp with time zone",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": "now()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    }
+  ]
+}
