@@ -20,21 +20,20 @@
     >
         <img class="size-[1.35rem]" src="/flags/{getLocale()}.avif" alt="Current language: {getLocale()}" />
     </DropdownMenu.Trigger>
-    <DropdownMenu.Portal>
-        <DropdownMenu.Content
-            class="z-50 w-32 rounded-md border border-muted bg-background px-1 py-1.5 shadow-popover outline-hidden focus-visible:outline-hidden"
-            sideOffset={8}
-        >
-            {#each locales as locale}
-                <DropdownMenu.Item
-                    class="flex h-8 items-center rounded-sm px-1.5 py-2 text-sm font-medium ring-0! ring-transparent! select-none focus-visible:outline-none data-highlighted:bg-muted"
-                >
-                    <Button.Root class="flex items-center space-x-1.5" onclick={() => setLocale(locale)}>
-                        <img class="size-4" src="/flags/{locale}.avif" alt={locale} />
-                        <span>{localeMappings[locale]}</span>
-                    </Button.Root>
-                </DropdownMenu.Item>
-            {/each}
-        </DropdownMenu.Content>
-    </DropdownMenu.Portal>
+    <DropdownMenu.Content
+        class="z-50 w-32 rounded-md border border-muted bg-background px-1 py-1.5 shadow-popover outline-hidden focus-visible:outline-hidden"
+        sideOffset={8}
+    >
+        {#each locales as locale}
+            <DropdownMenu.Item
+                onclick={() => setLocale(locale)}
+                class="flex h-8 items-center rounded-sm px-1.5 py-2 text-sm font-medium ring-0! ring-transparent! select-none focus-visible:outline-none data-highlighted:bg-muted"
+            >
+                <Button.Root class="flex items-center space-x-1.5">
+                    <img class="size-4" src="/flags/{locale}.avif" alt={locale} />
+                    <span>{localeMappings[locale]}</span>
+                </Button.Root>
+            </DropdownMenu.Item>
+        {/each}
+    </DropdownMenu.Content>
 </DropdownMenu.Root>
