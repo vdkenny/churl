@@ -12,25 +12,21 @@ const schema = z.object({
 
 export const POST: RequestHandler = async ({ request }) => {
     const { rateLimited } = await checkRateLimit("create_url", { request });
-    if (rateLimited) {
-        return error(429);
-    }
+    if (rateLimited) error(429);
 
     let body;
     try {
         body = await request.json();
         schema.parse(body);
     } catch {
-        return error(400);
+        error(400);
     }
 
-    const url = await database
+    const [url] = await database
         .insert(urls)
         .values({ id: nanoid(6), destination: body.destination, expires_at: body.expires_at })
         .returning();
-    if (url.length === 0) {
-        return error(500);
-    }
+    if (!url) error(500);
 
-    return Response.json(url[0]);
+    return Response.json(url);
 };
