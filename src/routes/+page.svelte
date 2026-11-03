@@ -1,16 +1,26 @@
 <script lang="ts">
     import { VERCEL_PROJECT_PRODUCTION_URL } from "$app/env/public";
-    import { Button, Label } from "bits-ui";
+    import {
+        CalendarDateTime,
+        getLocalTimeZone,
+        now,
+        toCalendarDateTime,
+        today,
+        toLocalTimeZone,
+    } from "@internationalized/date";
+    import { Button, DateField, Label } from "bits-ui";
     import LanguageSwitch from "#lib/components/LanguageSwitch.svelte";
     import ThemeToggle from "#lib/components/ThemeToggle.svelte";
     import { m } from "#lib/paraglide/messages.js";
+    import { getLocale } from "#lib/paraglide/runtime.js";
 
     let url = $state("");
+    let expire = $state(new CalendarDateTime(2077, 1, 1, 0, 0));
 
     async function oncreate() {
         const response = await fetch("/urls", {
             method: "POST",
-            body: JSON.stringify({ destination: url }),
+            body: JSON.stringify({ destination: url, expires_at: expire.toDate(getLocalTimeZone()) }),
             headers: { "content-type": "application/json" },
         });
 
@@ -20,7 +30,7 @@
         }
 
         const json = await response.json();
-        url = "https://" + VERCEL_PROJECT_PRODUCTION_URL + "/" + json.id;
+        url = VERCEL_PROJECT_PRODUCTION_URL + "/" + json.id;
     }
 </script>
 
@@ -44,6 +54,31 @@
         {m.create()}
     </Button.Root>
 </div>
+
+<DateField.Root locale={getLocale()} bind:value={expire} granularity="minute">
+    <DateField.Input
+        class="-mt-1 flex h-9 w-104 items-center rounded-md border border-input bg-input/20 px-2 py-1 text-sm tracking-[0.01em] text-foreground shadow-xs select-none focus-within:border-ring focus-within:ring-[3px] focus-within:ring-ring/50 hover:border-ring data-invalid:border-destructive"
+    >
+        {#snippet children({ segments })}
+            {#each segments as { part, value }, i (part + i)}
+                <div class="inline-block select-none">
+                    {#if part === "literal"}
+                        <DateField.Segment {part} class="p-1 text-muted-foreground">
+                            {value}
+                        </DateField.Segment>
+                    {:else}
+                        <DateField.Segment
+                            {part}
+                            class="rounded-sm px-1 py-1 hover:bg-accent focus:bg-accent focus:text-accent-foreground focus-visible:ring-0! focus-visible:ring-offset-0! aria-[valuetext=Empty]:text-muted-foreground data-invalid:text-destructive"
+                        >
+                            {value}
+                        </DateField.Segment>
+                    {/if}
+                </div>
+            {/each}
+        {/snippet}
+    </DateField.Input>
+</DateField.Root>
 
 <div class="flex h-10 w-104 items-center space-x-2">
     <ThemeToggle />

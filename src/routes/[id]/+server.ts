@@ -9,5 +9,10 @@ export const GET: RequestHandler = async ({ params }) => {
         return error(404);
     }
 
+    if (url[0].expires_at && url[0].expires_at < new Date()) {
+        await database.delete(urls).where(eq(urls.id, url[0].id));
+        return error(404);
+    }
+
     return redirect(302, url[0].destination, { external: true });
 };

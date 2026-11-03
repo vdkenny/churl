@@ -1,18 +1,32 @@
 import { error } from "@sveltejs/kit";
+import { checkRateLimit } from "@vercel/firewall";
 import { nanoid } from "nanoid";
+import * as z from "zod";
 import { database, urls } from "#lib/server/database/index.ts";
 import type { RequestHandler } from "./$types";
 
-export const POST: RequestHandler = async ({ request }) => {
-    const { destination } = await request.json();
+const schema = z.object({
+    destination: z.httpUrl(),
+    expires_at: z.iso.datetime().optional(),
+});
 
-    if (!destination) {
+export const POST: RequestHandler = async ({ request }) => {
+    const { rateLimited } = await checkRateLimit("create_url", { request });
+    if (rateLimited) {
+        return error(429);
+    }
+
+    let body;
+    try {
+        body = await request.json();
+        schema.parse(body);
+    } catch {
         return error(400);
     }
 
     const url = await database
         .insert(urls)
-        .values({ id: nanoid(6), destination })
+        .values({ id: nanoid(6), destination: body.destination, expires_at: body.expires_at })
         .returning();
     if (url.length === 0) {
         return error(500);
