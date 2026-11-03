@@ -14,18 +14,18 @@
     "privacy": {
         "disclaimer": "garde en tête que ceci est un exemple sans valeur juridique.",
         "title": "politique de confidentialité",
-        "last_update": "dernière mise à jour : 1er novembre 2026",
+        "last_update": "dernière mise à jour: 1er novembre 2026",
         "who": {
-            "title": "qui on est :",
+            "title": "qui on est:",
             "text": "churl est une simple démo de raccourcisseur d'url. le service est fourni tel quel"
         },
-        "contacts": "contact :",
+        "contacts": "contact:",
         "processed": {
             "title": "ce qui est traité, pourquoi et où :",
-            "data": "données : l'url que tu envoies, données techniques (ip, user-agent) par vercel inc.",
-            "purpose": "finalité : fournir le service, sécuriser le site",
-            "legal_basis": "base légale : intérêts légitimes comme la sécurité, l'amélioration et le fonctionnement du service",
-            "storage": "où c'est stocké : francfort, allemagne, par neon.tech"
+            "data": "données: l'url que tu envoies, données techniques (ip, user-agent) par vercel inc.",
+            "purpose": "finalité: fournir le service, sécuriser le site",
+            "legal_basis": "base légale: intérêts légitimes comme la sécurité, l'amélioration et le fonctionnement du service",
+            "storage": "où c'est stocké: francfort, allemagne, par neon.tech"
         },
         "retention": {
             "title": "combien de temps les données sont gardées",
