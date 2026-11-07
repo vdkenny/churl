@@ -2,7 +2,6 @@
     import "@fontsource-variable/geist-pixel";
     import "./layout.css";
     import { dev } from "$app/env";
-    import { Separator } from "bits-ui";
     import { injectAnalytics } from "#lib/analytics/index.svelte.ts";
     import favicon from "#lib/assets/favicon.svg";
     import { m } from "#lib/paraglide/messages.js";
@@ -51,7 +50,7 @@
 <main class="flex h-screen flex-col items-center justify-center space-y-3">
     {@render children()}
 
-    <Separator.Root class="my-1 h-px w-104 shrink-0 bg-border" />
+    <hr class="my-1 h-px w-104 shrink-0 text-border" />
 
     <div class="mt-3 flex space-x-5 text-muted-foreground">
         <a href={localizeHref("/")}>[{m["footer.home"]()}]</a>

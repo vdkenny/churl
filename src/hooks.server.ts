@@ -1,4 +1,4 @@
-import { sequence, type Handle } from "@sveltejs/kit/hooks";
+import { type Handle, sequence } from "@sveltejs/kit/hooks";
 import { getTextDirection } from "#lib/paraglide/runtime.js";
 import { paraglideMiddleware } from "#lib/paraglide/server.js";
 
@@ -16,12 +16,12 @@ const paraglide: Handle = ({ event, resolve }) =>
 const font: Handle = async ({ event, resolve }) => {
     return resolve(event, {
         preload: (asset) => {
-            if (asset.type === 'font') {
+            if (asset.type === "font") {
                 return asset.filename.includes("geist-pixel-latin-elsh-normal");
             }
 
             return true;
-        }
+        },
     });
 };
 
