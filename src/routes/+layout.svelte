@@ -30,6 +30,8 @@
 </script>
 
 <svelte:head>
+    <title>churl - oss url shortener</title>
+    <meta name="description" content="create short and user-friendly urls with churl." />
     <link rel="icon" href={favicon} />
     <script>
         try {
