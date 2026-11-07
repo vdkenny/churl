@@ -1,8 +1,8 @@
-import type { Handle } from "@sveltejs/kit/hooks";
+import { sequence, type Handle } from "@sveltejs/kit/hooks";
 import { getTextDirection } from "#lib/paraglide/runtime.js";
 import { paraglideMiddleware } from "#lib/paraglide/server.js";
 
-const handleParaglide: Handle = ({ event, resolve }) =>
+const paraglide: Handle = ({ event, resolve }) =>
     paraglideMiddleware(event.request, ({ request, locale }) => {
         return resolve(
             { ...event, request },
@@ -13,4 +13,16 @@ const handleParaglide: Handle = ({ event, resolve }) =>
         );
     });
 
-export const handle: Handle = handleParaglide;
+const font: Handle = async ({ event, resolve }) => {
+    return resolve(event, {
+        preload: (asset) => {
+            if (asset.type === 'font') {
+                return asset.filename.includes("geist-pixel-latin-elsh-normal");
+            }
+
+            return true;
+        }
+    });
+};
+
+export const handle: Handle = sequence(paraglide, font);
