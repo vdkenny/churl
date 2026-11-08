@@ -4,6 +4,8 @@
 
 <h4 align="center">🐜 chico [chee-koh] - small in Spanish.</h4>
 
+multilingual, optimized (~157KB) web url-shortener.
+
 ## Getting Started
 
 The fastest way to get started locally:
