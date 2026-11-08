@@ -15,7 +15,7 @@
     }
 </script>
 
-<section class="flex w-full max-w-104 flex-col space-y-2 px-4">
+<section class="flex w-full flex-col space-y-2 px-4">
     <div class="flex flex-col items-center justify-center">
         <span class="mb-2 text-center text-xs text-muted-foreground/40">
             {m["privacy.disclaimer"]()}
